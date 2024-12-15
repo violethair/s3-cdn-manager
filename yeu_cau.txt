@@ -1,0 +1,30 @@
+Mục tiêu dự án
+    •	Xây dựng một ứng dụng web bằng Next.js (phiên bản mới nhất) với giao diện đẹp sử dụng Shadcn/UI.
+    •	Cho phép người dùng upload file lên S3 CDN đã được cấu hình.
+    •	Deploy ứng dụng lên Vercel.
+    •	Mã nguồn được tổ chức dễ bảo trì và hỗ trợ làm việc nhóm.
+
+Yêu cầu kỹ thuật
+
+1.	Công nghệ & thư viện:
+    •   Sử dụng pnpm làm package manager
+	•	Next.js: framework chính (phiên bản mới nhất).
+	•	Shadcn/UI: thiết kế giao diện.
+	•	Typescript: codebase type-safe.
+	•	Tailwind CSS: để hỗ trợ giao diện (cấu hình bởi Shadcn/UI).
+	•	AWS SDK v3: dùng để kết nối và upload file lên S3.
+	•	Formik + Yup: để xử lý form và validate input.
+	•	React Query: để xử lý state server-side và fetch dữ liệu.
+
+2.	Chức năng chính:
+	•	Upload file:
+	•	Người dùng có thể chọn file từ máy tính và upload lên S3.
+	•	Hiển thị tiến trình (progress bar) khi upload.
+	•	UI đẹp:
+	•	Tận dụng Shadcn/UI với các component như buttons, cards, progress bar.
+	•	Environment variables:
+	•	Config S3 Bucket Name, Access Key, và Secret Key bằng .env.
+
+3.	Kiến trúc:
+	•	Tách biệt frontend (UI/UX) và logic upload file (backend API handler).
+	•	Xử lý lỗi khi upload file (ví dụ: file quá lớn, lỗi kết nối).

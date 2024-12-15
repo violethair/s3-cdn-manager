@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# S3 CDN Manager
 
-## Getting Started
+A modern file management application for AWS S3, built with Next.js 13+ and Shadcn UI.
 
-First, run the development server:
+## Features
+
+-   📁 File and folder management
+-   📤 File upload (drag & drop, multi-file support)
+-   📋 Copy, move, and rename files
+-   🗑️ Delete files (single or bulk)
+-   🔍 File search
+-   📊 Storage and file/folder statistics
+-   🎨 Modern UI with Shadcn UI
+-   🌙 Dark mode support
+
+## System Requirements
+
+-   Node.js 18.0.0 or later
+-   pnpm 8.0.0 or later
+-   AWS account with S3 access
+
+## Installation
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd s3-cdn-manager
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Create environment file:
 
-## Learn More
+```bash
+cp .env.example .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Configure environment variables in `.env`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+AWS_ACCESS_KEY_ID=your_access_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_access_key
+AWS_REGION=your_region
+AWS_BUCKET_NAME=your_bucket_name
+NEXT_PUBLIC_CDN_URL=your_cdn_url
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Run in development mode:
 
-## Deploy on Vercel
+```bash
+pnpm dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. Build and run in production:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm build
+pnpm start
+```
+
+## Project Structure
+
+```
+s3-cdn-manager/
+├── src/
+│   ├── app/              # Next.js app router
+│   ├── components/       # React components
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utilities and shared logic
+│   ├── types/           # TypeScript type definitions
+│   └── constants/       # Constants and configuration
+├── public/              # Static files
+└── package.json         # Project dependencies
+```
+
+## Tech Stack
+
+-   [Next.js](https://nextjs.org/) - React framework
+-   [Shadcn UI](https://ui.shadcn.com/) - UI components
+-   [TanStack Query](https://tanstack.com/query/latest) - Data fetching and caching
+-   [AWS SDK](https://aws.amazon.com/sdk-for-javascript/) - AWS S3 integration
+-   [Framer Motion](https://www.framer.com/motion/) - Animations
+-   [Tailwind CSS](https://tailwindcss.com/) - Styling
+
+## Environment
+
+The application can run in:
+
+-   Development: `pnpm dev`
+-   Production: `pnpm build && pnpm start`
+
+## S3 Configuration
+
+1. Create an S3 bucket with public access
+2. Configure CORS for the bucket:
+
+```json
+[
+    {
+        "AllowedHeaders": ["*"],
+        "AllowedMethods": ["GET", "PUT", "POST", "DELETE"],
+        "AllowedOrigins": ["*"],
+        "ExposeHeaders": []
+    }
+]
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues and pull requests.
+
+## License
+
+MIT
